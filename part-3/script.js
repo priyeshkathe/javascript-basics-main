@@ -4,7 +4,7 @@
  * In this file, you will practice manipulating CSS classes
  * and styles using JavaScript.
  *
- * Key concepts: classList, element.style, CSS transitions
+ * Key concepts: classlist, element.style, CSS transitions
  */
 
 // ============================================

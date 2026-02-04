@@ -1,7 +1,7 @@
 /**
  * Part 6: Interactive Quiz App
  *
- * This project combines all concepts from Parts 1-5:
+ * this project combines all concepts from Parts 1-5:
  * - DOM Selection (Part 1)
  * - Event Listeners (Part 2)
  * - Dynamic Styling (Part 3)

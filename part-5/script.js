@@ -2,7 +2,7 @@
  * Part 5: Modern ES6+ Syntax
  *
  * In this file, you will practice modern JavaScript features:
- * - Arrow functions
+ * - arrow functions
  * - Template literals
  * - Destructuring
  * - Spread operator

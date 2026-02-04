@@ -4,7 +4,7 @@
  * In this file, you will learn to manage application state
  * using variables and arrays, and keep the UI in sync.
  *
- * Key concept: When state changes → Update the UI
+ * key concept: When state changes → Update the UI
  */
 
 // ============================================
