@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1: DOM Selection Basics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .highlight {
+            background-color: yellow;
+            padding: 5px;
+        }
+
+        .box {
+            border: 2px solid #007bff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        ul {
+            background: #e9ecef;
+            padding: 20px 40px;
+            border-radius: 5px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Element with ID for getElementById practice -->
+        <h1 id="title">Welcome to DOM Selection</h1>
+
+        <!-- Paragraphs for querySelector practice -->
+        <p>This is the first paragraph. Learn to select me!</p>
+        <p>This is the second paragraph. Can you find me too?</p>
+
+        <!-- Elements with class for querySelectorAll practice -->
+        <div class="box">
+            <span class="highlight">Highlighted text 1</span>
+        </div>
+
+        <div class="box">
+            <span class="highlight">Highlighted text 2</span>
+        </div>
+
+        <div class="box">
+            <span class="highlight">Highlighted text 3</span>
+        </div>
+
+        <!-- List for practicing selection of multiple elements -->
+        <h2 id="list-title">Shopping List</h2>
+        <ul id="shopping-list">
+            <li class="list-item">Apples</li>
+            <li class="list-item">Bananas</li>
+            <li class="list-item">Oranges</li>
+            <li class="list-item">Milk</li>
+            <li class="list-item">Bread</li>
+        </ul>
+
+        <!-- Image for attribute practice -->
+        <img id="sample-image"
+             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='100'%3E%3Crect width='200' height='100' fill='%23007bff'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial' font-size='14'%3ESample Image%3C/text%3E%3C/svg%3E"
+             alt="Sample Image"
+             style="border-radius: 5px;">
+
+        <!-- Link for attribute practice -->
+        <p>
+            Visit: <a id="sample-link" href="https://example.com" target="_blank">Example Website</a>
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

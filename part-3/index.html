@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 3: Dynamic Styling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1a1a2e;
+            color: #eee;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00d9ff;
+        }
+
+        h2 {
+            color: #00d9ff;
+            border-bottom: 2px solid #00d9ff;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            background: #16213e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* ===== Exercise 1 Styles ===== */
+        .box-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: #0f3460;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .box.active {
+            background: #e94560;
+            border-color: #fff;
+            transform: scale(1.1);
+        }
+
+        .box.highlight {
+            box-shadow: 0 0 20px #00d9ff;
+            border-color: #00d9ff;
+        }
+
+        /* ===== Exercise 2 Styles ===== */
+        .animation-box {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            margin: 20px 0;
+            transition: all 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .animation-box.slide-in {
+            transform: translateX(200px);
+        }
+
+        .animation-box.fade-out {
+            opacity: 0;
+        }
+
+        .animation-box.grow {
+            transform: scale(1.5);
+        }
+
+        .animation-box.spin {
+            transform: rotate(360deg);
+        }
+
+        .animation-box.color-shift {
+            background: linear-gradient(135deg, #00d9ff, #00ff88);
+        }
+
+        /* ===== Exercise 3 Styles ===== */
+        .progress-container {
+            width: 100%;
+            height: 30px;
+            background: #0f3460;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            border-radius: 15px;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a1a2e;
+            font-weight: bold;
+        }
+
+        .resize-box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            border-radius: 10px;
+            margin: 20px 0;
+            transition: all 0.2s ease;
+        }
+
+        .slider-container {
+            margin: 15px 0;
+        }
+
+        input[type="range"] {
+            width: 200px;
+        }
+
+        .color-preview {
+            width: 200px;
+            height: 100px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 3px solid #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="color"] {
+            width: 60px;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .theme-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        /* Theme classes */
+        .theme-dark {
+            background-color: #1a1a2e !important;
+        }
+
+        .theme-light {
+            background-color: #f5f5f5 !important;
+            color: #333 !important;
+        }
+
+        .theme-ocean {
+            background-color: #006994 !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>Part 3: Dynamic Styling</h1>
+
+    <!-- Exercise 1: classList Basics -->
+    <div class="section">
+        <h2>Exercise 1: classList Basics</h2>
+
+        <h3>Toggle Active State (Click the boxes)</h3>
+        <div class="box-container">
+            <div class="box" id="box1">Box 1</div>
+            <div class="box" id="box2">Box 2</div>
+            <div class="box" id="box3">Box 3</div>
+            <div class="box" id="box4">Box 4</div>
+        </div>
+
+        <h3>Add/Remove Classes</h3>
+        <button id="highlight-all-btn">Highlight All Boxes</button>
+        <button id="remove-highlight-btn">Remove Highlight</button>
+        <button id="temporary-class-btn">Add Class for 2 Seconds</button>
+    </div>
+
+    <!-- Exercise 2: CSS Transitions -->
+    <div class="section">
+        <h2>Exercise 2: CSS Transitions</h2>
+
+        <div class="animation-box" id="anim-box">Animate Me!</div>
+
+        <button id="slide-btn">Slide Right</button>
+        <button id="fade-btn">Fade Out</button>
+        <button id="grow-btn">Grow</button>
+        <button id="spin-btn">Spin</button>
+        <button id="color-btn">Change Color</button>
+        <button id="reset-anim-btn">Reset All</button>
+    </div>
+
+    <!-- Exercise 3: Dynamic Styles -->
+    <div class="section">
+        <h2>Exercise 3: Dynamic Styles</h2>
+
+        <h3>Progress Bar</h3>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar">0%</div>
+        </div>
+        <button id="increase-progress-btn">Increase 10%</button>
+        <button id="decrease-progress-btn">Decrease 10%</button>
+        <button id="reset-progress-btn">Reset</button>
+
+        <h3>Resize Box with Slider</h3>
+        <div class="resize-box" id="resize-box"></div>
+        <div class="slider-container">
+            <label>Size: <span id="size-value">100</span>px</label><br>
+            <input type="range" id="size-slider" min="50" max="300" value="100">
+        </div>
+
+        <h3>Color Picker</h3>
+        <div class="color-preview" id="color-preview"></div>
+        <input type="color" id="color-picker" value="#667eea">
+        <span id="color-value">#667eea</span>
+    </div>
+
+    <!-- Bonus: Theme Switcher -->
+    <div class="section">
+        <h2>Bonus: Theme Switcher</h2>
+        <p>Click buttons to change the page theme:</p>
+        <div class="theme-buttons">
+            <button id="theme-dark">Dark Theme</button>
+            <button id="theme-light">Light Theme</button>
+            <button id="theme-ocean">Ocean Theme</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

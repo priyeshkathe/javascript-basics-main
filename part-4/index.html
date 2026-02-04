@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 4: State Management</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #495057;
+        }
+
+        h2 {
+            color: #495057;
+            border-bottom: 3px solid #28a745;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            background: white;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        button.danger {
+            background-color: #dc3545;
+        }
+
+        button.danger:hover {
+            background-color: #c82333;
+        }
+
+        button.secondary {
+            background-color: #6c757d;
+        }
+
+        button.secondary:hover {
+            background-color: #5a6268;
+        }
+
+        input[type="text"] {
+            padding: 10px 15px;
+            border: 2px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+
+        /* Toggle Switch */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .toggle-switch {
+            width: 80px;
+            height: 40px;
+            background: #ccc;
+            border-radius: 20px;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s;
+        }
+
+        .toggle-switch.on {
+            background: #28a745;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            top: 4px;
+            left: 4px;
+            transition: transform 0.3s;
+        }
+
+        .toggle-switch.on::after {
+            transform: translateX(40px);
+        }
+
+        .toggle-status {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Score Display */
+        .score-display {
+            font-size: 64px;
+            text-align: center;
+            color: #495057;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .score-buttons {
+            text-align: center;
+        }
+
+        /* List Styles */
+        .list-container {
+            margin: 20px 0;
+        }
+
+        .add-item-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid #28a745;
+        }
+
+        li button {
+            padding: 5px 15px;
+            font-size: 12px;
+        }
+
+        .item-count {
+            background: #e9ecef;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        /* Task List Styles */
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .task-item.completed span {
+            text-decoration: line-through;
+            color: #6c757d;
+        }
+
+        .task-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: #e9ecef;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .stat-box .label {
+            font-size: 12px;
+            color: #6c757d;
+            text-transform: uppercase;
+        }
+
+        .empty-message {
+            text-align: center;
+            color: #6c757d;
+            padding: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Part 4: State Management</h1>
+
+    <!-- Exercise 1: Simple State -->
+    <div class="section">
+        <h2>Exercise 1: Simple State</h2>
+
+        <!-- Toggle Switch -->
+        <h3>Toggle Switch</h3>
+        <div class="toggle-container">
+            <div class="toggle-switch" id="toggle-switch"></div>
+            <span class="toggle-status" id="toggle-status">OFF</span>
+        </div>
+
+        <!-- Score Tracker -->
+        <h3>Score Tracker</h3>
+        <div class="score-display" id="score-display">0</div>
+        <div class="score-buttons">
+            <button id="score-minus">- 1</button>
+            <button id="score-plus">+ 1</button>
+            <button id="score-reset" class="secondary">Reset</button>
+        </div>
+    </div>
+
+    <!-- Exercise 2: Array State -->
+    <div class="section">
+        <h2>Exercise 2: Array State - Shopping List</h2>
+
+        <div class="add-item-form">
+            <input type="text" id="item-input" placeholder="Enter item name...">
+            <button id="add-item-btn">Add Item</button>
+        </div>
+
+        <ul id="shopping-list">
+            <!-- Items will be rendered here -->
+        </ul>
+
+        <div class="item-count">
+            Total items: <strong id="item-count">0</strong>
+        </div>
+    </div>
+
+    <!-- Exercise 3: Complex State -->
+    <div class="section">
+        <h2>Exercise 3: Task Manager</h2>
+
+        <div class="add-item-form">
+            <input type="text" id="task-input" placeholder="Enter new task...">
+            <button id="add-task-btn">Add Task</button>
+        </div>
+
+        <ul id="task-list">
+            <!-- Tasks will be rendered here -->
+        </ul>
+
+        <div class="stats">
+            <div class="stat-box">
+                <div class="number" id="total-tasks">0</div>
+                <div class="label">Total</div>
+            </div>
+            <div class="stat-box">
+                <div class="number" id="completed-tasks">0</div>
+                <div class="label">Completed</div>
+            </div>
+            <div class="stat-box">
+                <div class="number" id="pending-tasks">0</div>
+                <div class="label">Pending</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <button id="clear-completed-btn" class="danger">Clear Completed</button>
+            <button id="clear-all-btn" class="secondary">Clear All</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

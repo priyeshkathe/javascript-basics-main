@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework: Bookmark Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📑 Bookmark Manager</h1>
+            <p class="subtitle">Save and organize your favorite links</p>
+        </header>
+
+        <!-- Add Bookmark Form -->
+        <div class="form-section">
+            <h2>Add New Bookmark</h2>
+            <form id="bookmark-form">
+                <div class="form-group">
+                    <label for="bookmark-name">Website Name</label>
+                    <input
+                        type="text"
+                        id="bookmark-name"
+                        placeholder="e.g., Google"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="bookmark-url">Website URL</label>
+                    <input
+                        type="url"
+                        id="bookmark-url"
+                        placeholder="e.g., https://google.com"
+                        required
+                    >
+                </div>
+                <button type="submit" class="btn-add">
+                    <span class="btn-icon">+</span>
+                    Add Bookmark
+                </button>
+            </form>
+        </div>
+
+        <!-- Search (Bonus Feature) -->
+        <div class="search-section">
+            <input
+                type="text"
+                id="search-input"
+                placeholder="🔍 Search bookmarks..."
+            >
+        </div>
+
+        <!-- Bookmark List -->
+        <div class="bookmarks-section">
+            <div class="bookmarks-header">
+                <h2>My Bookmarks</h2>
+                <span class="bookmark-count" id="bookmark-count">0 bookmarks</span>
+            </div>
+
+            <ul class="bookmark-list" id="bookmark-list">
+                <!-- Bookmarks will be rendered here -->
+                <!-- Example structure:
+                <li class="bookmark-item" data-id="123">
+                    <div class="bookmark-info">
+                        <a href="https://google.com" target="_blank" class="bookmark-name">Google</a>
+                        <span class="bookmark-url">https://google.com</span>
+                    </div>
+                    <div class="bookmark-actions">
+                        <button class="btn-edit" title="Edit">✏️</button>
+                        <button class="btn-delete" title="Delete">🗑️</button>
+                    </div>
+                </li>
+                -->
+            </ul>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state">
+                <span class="empty-icon">📭</span>
+                <p>No bookmarks yet!</p>
+                <p class="empty-hint">Add your first bookmark above.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>DOM & Logic Module - Homework Assignment</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

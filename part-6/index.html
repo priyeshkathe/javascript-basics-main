@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 6: Interactive Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <!-- Header -->
+        <div class="quiz-header">
+            <h1>JavaScript Quiz</h1>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="quiz-info">
+                <span id="question-number">Question 1/5</span>
+                <span id="score-display">Score: 0</span>
+            </div>
+        </div>
+
+        <!-- Quiz Content -->
+        <div class="quiz-content" id="quiz-content">
+            <!-- Question -->
+            <div class="question-container">
+                <h2 id="question-text">What is JavaScript?</h2>
+            </div>
+
+            <!-- Answer Options -->
+            <div class="answers-container" id="answers-container">
+                <button class="answer-btn" data-index="0">
+                    <span class="answer-letter">A</span>
+                    <span class="answer-text">Answer option 1</span>
+                </button>
+                <button class="answer-btn" data-index="1">
+                    <span class="answer-letter">B</span>
+                    <span class="answer-text">Answer option 2</span>
+                </button>
+                <button class="answer-btn" data-index="2">
+                    <span class="answer-letter">C</span>
+                    <span class="answer-text">Answer option 3</span>
+                </button>
+                <button class="answer-btn" data-index="3">
+                    <span class="answer-letter">D</span>
+                    <span class="answer-text">Answer option 4</span>
+                </button>
+            </div>
+
+            <!-- Feedback -->
+            <div class="feedback" id="feedback">
+                <span id="feedback-icon"></span>
+                <span id="feedback-text"></span>
+            </div>
+
+            <!-- Next Button -->
+            <button class="next-btn" id="next-btn" disabled>Next Question</button>
+        </div>
+
+        <!-- Results Screen (Hidden initially) -->
+        <div class="results-container hidden" id="results-container">
+            <div class="results-icon" id="results-icon">🎉</div>
+            <h2>Quiz Complete!</h2>
+            <div class="final-score">
+                <span id="final-score">0</span>
+                <span class="score-label">out of 5</span>
+            </div>
+            <p class="results-message" id="results-message">Great job!</p>
+            <div class="results-breakdown" id="results-breakdown">
+                <!-- Breakdown will be inserted here -->
+            </div>
+            <button class="restart-btn" id="restart-btn">Try Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

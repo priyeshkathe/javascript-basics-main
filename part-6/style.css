@@ -1,0 +1,354 @@
+/* Part 6: Quiz App Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.quiz-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+/* Header Styles */
+.quiz-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 25px 30px;
+    color: white;
+}
+
+.quiz-header h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.progress-container {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    height: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    background: #00ff88;
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.quiz-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Quiz Content */
+.quiz-content {
+    padding: 30px;
+}
+
+.question-container {
+    margin-bottom: 25px;
+}
+
+#question-text {
+    font-size: 20px;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Answer Buttons */
+.answers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.answer-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-size: 16px;
+}
+
+.answer-btn:hover:not(:disabled) {
+    border-color: #667eea;
+    background: #f0f0ff;
+    transform: translateX(5px);
+}
+
+.answer-btn:disabled {
+    cursor: not-allowed;
+}
+
+.answer-btn.selected {
+    border-color: #667eea;
+    background: #e8e4ff;
+}
+
+.answer-btn.correct {
+    border-color: #28a745;
+    background: #d4edda;
+}
+
+.answer-btn.incorrect {
+    border-color: #dc3545;
+    background: #f8d7da;
+}
+
+.answer-letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: #667eea;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.answer-btn.correct .answer-letter {
+    background: #28a745;
+}
+
+.answer-btn.incorrect .answer-letter {
+    background: #dc3545;
+}
+
+.answer-text {
+    color: #333;
+}
+
+/* Feedback */
+.feedback {
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.feedback.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feedback.correct {
+    background: #d4edda;
+    color: #155724;
+}
+
+.feedback.incorrect {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+#feedback-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+#feedback-text {
+    font-weight: 600;
+}
+
+/* Next Button */
+.next-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.next-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.next-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Results Screen */
+.results-container {
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.results-container.hidden {
+    display: none;
+}
+
+.results-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.results-container h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.final-score {
+    margin-bottom: 20px;
+}
+
+.final-score #final-score {
+    font-size: 72px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.score-label {
+    font-size: 24px;
+    color: #666;
+}
+
+.results-message {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.results-breakdown {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.breakdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.breakdown-item:last-child {
+    border-bottom: none;
+}
+
+.breakdown-item .icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.breakdown-item.correct {
+    color: #28a745;
+}
+
+.breakdown-item.incorrect {
+    color: #dc3545;
+}
+
+.restart-btn {
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Utility class */
+.hidden {
+    display: none !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quiz-content {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .quiz-container {
+        border-radius: 15px;
+    }
+
+    .quiz-header {
+        padding: 20px;
+    }
+
+    .quiz-header h1 {
+        font-size: 20px;
+    }
+
+    #question-text {
+        font-size: 18px;
+    }
+
+    .answer-btn {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    .answer-letter {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .final-score #final-score {
+        font-size: 56px;
+    }
+}
