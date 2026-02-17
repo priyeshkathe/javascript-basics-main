@@ -20,59 +20,44 @@ console.log('Example - Title element:', titleExample);
 const firstParagraph = document.querySelector('p');
 console.log('Example - First paragraph text:', firstParagraph.textContent);
 
-
-// ============================================
 // EXERCISE 1: Basic Selection
-// ============================================
 
-// Task 1.1: Select the element with ID 'list-title' and log it
-// Your code here:
+const listTitle = document.getElementById('list-title');
+console.log('Task 1.1 - List Title:', listTitle);
 
+const firstBox = document.querySelector('.box');
+console.log('Task 1.2 - First Box:', firstBox);
 
-// Task 1.2: Select the first element with class 'box' and log it
-// Your code here:
+const listItems = document.querySelectorAll('.list-item');
+console.log('Task 1.3 - Total list items:', listItems.length);
 
-
-// Task 1.3: Select ALL list items and log how many there are
-// Hint: Use querySelectorAll and .length property
-// Your code here:
-
-
-
-// ============================================
 // EXERCISE 2: Exploring Properties
-// ============================================
 
-// Task 2.1: Select the image (id="sample-image") and log its 'src' attribute
-// Hint: Use getAttribute('src') or .src property
-// Your code here:
+const image = document.getElementById('sample-image');
+console.log('Task 2.1 - Image src (getAttribute):', image.getAttribute('src'));
+console.log('Task 2.1 - Image src (.src):', image.src);
 
+const link = document.getElementById('sample-link');
+console.log('Task 2.2 - Link href (getAttribute):', link.getAttribute('href'));
+console.log('Task 2.2 - Link href (.href):', link.href);
 
-// Task 2.2: Select the link (id="sample-link") and log its 'href' attribute
-// Your code here:
-
-
-// Task 2.3: Select the shopping list (id="shopping-list") and log its innerHTML
-// Your code here:
+const shoppingList = document.getElementById('shopping-list');
+console.log('Task 2.3 - Shopping List innerHTML:', shoppingList.innerHTML);
 
 
-
-// ============================================
 // EXERCISE 3: Multiple Selections
-// ============================================
 
-// Task 3.1: Select all elements with class 'highlight'
-// Your code here:
+const highlightedElements = document.querySelectorAll('.highlight');
 
+highlightedElements.forEach((element) => {
+    console.log('Task 3.2 - Highlight text:', element.textContent);
+});
 
-// Task 3.2: Loop through all highlighted elements and log each text content
-// Hint: Use forEach() method
-// Your code here:
+const listItemsUpper = document.querySelectorAll('.list-item');
 
-
-// Task 3.3: Select all list items and log each item's text in uppercase
-// Hint: Use .toUpperCase() method on textContent
-// Your code here:
+listItemsUpper.forEach((item) => {
+    console.log('Task 3.3 - List item uppercase:', item.textContent.toUpperCase());
+});
 
 
 
