@@ -197,7 +197,7 @@ user.name = 'Jane';     // OK - modifying property, not reassigning
 
 ---
 
-## 📌 Tips
+## 📌 Tips and Ticks 
 - Arrow functions don't have their own `this` - they inherit from parent scope
 - Use template literals whenever you need string concatenation
 - Destructuring makes code cleaner and more readable
