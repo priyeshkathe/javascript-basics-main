@@ -87,9 +87,6 @@ const box = document.querySelector('.box');
 const styles = window.getComputedStyle(box);
 console.log(styles.backgroundColor);
 console.log(styles.width);
-```
-
----
 
 ## 🛠️ Exercises
 
